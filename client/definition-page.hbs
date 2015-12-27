@@ -1,0 +1,64 @@
+{{> top }}
+	<main>
+		<h1><a href=".">Guffipedia</a></h1>
+     	<div class="headshot"><img src="images/lucy.png"></div>
+     	<div class="subheader">Lucy Kellaway&rsquo;s dictionary of business jargon and corporate nonsense</div>
+     	<div class="line"></div>
+     	<div class="btnHolder">
+     		<a href="form/" class="o-buttons o-buttons--standout suggest-button">Suggest your own entry</a>
+     	</div>
+
+     	{{#with word}}
+		<div class="detailed-guff">
+			<div class="word">{{word}}</div>
+			<div class="details">
+				{{#if definition}}
+					<p class="detail definition"><strong>Translation into plain English</strong> {{definition}}</p>
+				{{/if}}
+				{{#if showPerpetratorData}}
+					<p class="detail perpetrator"><strong>Perpetrator</strong>
+				{{/if}}
+					{{#unless usageexample}}{{#if sourceurl}}<a href="{{sourceurl}}" target="_blank">{{/if}}{{/unless}}
+						{{#if perpetrator}}{{perpetrator}}{{/if}}{{#if perpetrator}}{{#if usagesource}}, {{/if}}{{/if}}{{#if usagesource}}{{usagesource}}{{/if}}
+					{{#unless usageexample}}{{#if sourceurl}}</a>{{/if}}{{/unless}}
+				{{#if showPerpetratorData}}
+					</p>
+				{{/if}}
+				{{#if usageexample}}
+					<p class="detail usageexample">
+						<strong>
+							{{#if sourceurl}}<a href="{{sourceurl}}" target="_blank">{{/if}}
+								Usage example
+							{{#if sourceurl}}</a>{{/if}}
+						</strong>
+						{{usageexample}}
+					</p>
+				{{/if}}
+				{{#if lucycommentary}}
+				
+					<p class="detail lucycommentary">
+						<strong>{{#if commenturl}}<a href="{{commenturl}}" target="_blank">{{/if}}Lucy&rsquo;s commentary{{#if commenturl}}</a>{{/if}}</strong>
+						{{lucycommentary}}</p>
+			
+				{{/if}}
+				{{#if relatedwords}}
+					<p class="detail relatedwords">Related:
+					{{#each relatedwords}}<a href="{{slug}}/">{{word}}</a>{{#unless @last}}&comma;&nbsp;{{/unless}}{{/each}}
+					</p>
+				{{/if}}
+			</div>
+		</div>
+		<div class="twitter btnHolder">
+			<a href="https://twitter.com/intent/tweet?text={{tweettexturi}}" target="_blank" class="o-buttons o-buttons--tweet">Tweet this <img src="images/twitter.png"></a>
+		</div>
+		<div class="navigate-guff">
+			{{#if previousWord}}
+				<a href="{{previousWord.slug}}/" class="previous-guff">&laquo; Previous<br><span class="preview">{{previousWord.word}}</span></a>
+			{{/if}}
+			{{#if nextWord}}
+				<a href="{{nextWord.slug}}/" class="next-guff">Next&raquo;<br><span class="preview">{{nextWord.word}}</span></a>
+			{{/if}}
+		</div>
+		{{/with}}
+	</main>
+{{> bottom }}

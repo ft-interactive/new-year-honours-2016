@@ -1,0 +1,10 @@
+/node_modules/
+/bower_components/
+/dist/
+/.tmp/
+/.sass-cache/
+/.env
+/client/words.json
+/client/homewords.json
+npm-debug.log
+rss.xml
