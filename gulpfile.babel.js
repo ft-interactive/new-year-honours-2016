@@ -242,11 +242,36 @@ gulp.task('build', done => {
 });
 
 // downloads the data from bertha to client/words.json
-const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/honours,types`;
+const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/honours,groups,options`;
 gulp.task('download-data', () => fetch(SPREADSHEET_URL)
   .then(res => res.json())
-  .then(spreadsheet => {
-    fs.writeFileSync('client/data.json', JSON.stringify(spreadsheet, null, 2));
+  .then(({honours, groups, options}) => {
+    // augment groups with more info
+    groups.forEach(group => {
+      // add recipients
+      group.recipients = honours
+        .filter(honour => honour.honour === group.male.letters || honour.honour === group.female.letters)
+        .sort((a, b) => {
+          if (a.surname < b.surname) return -1;
+          if (b.surname < a.surname) return 1;
+          return 0;
+        })
+      ;
+
+      group.count = group.recipients.length;
+    });
+
+    groups.sort((a, b) => {
+      if (a.count < b.count) return -1;
+      if (b.count < a.count) return 1;
+      return 0;
+    });
+
+    const optionsObject = {};
+    for (const {name, value} of options) optionsObject[name] = value;
+    options = optionsObject;
+
+    fs.writeFileSync('client/data.json', JSON.stringify({groups, options}, null, 2));
   })
 );
 
@@ -273,13 +298,13 @@ gulp.task('templates', () => {
 
   const mainPageTemplate = Handlebars.compile(fs.readFileSync('client/main-page.hbs', 'utf8'));
 
-  const {types, honours} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
+  const {groups, options} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
 
   const mainPageHtml = mainPageTemplate({
     trackingEnv: (env === 'production' ? 'p' : 't'),
     page: 'main',
-    types,
-    honours,
+    groups,
+    options,
   });
 
   fs.writeFileSync(`.tmp/index.html`, mainPageHtml);

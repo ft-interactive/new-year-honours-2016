@@ -7,6 +7,8 @@
 $o-grid-is-silent: false;
 $o-buttons-is-silent: false;
 
+$o-grid-debug-mode: true;
+
 @import 'o-colors/main';
 @import 'o-footer/main';
 @import 'o-grid/main';
@@ -16,14 +18,35 @@ $o-buttons-is-silent: false;
 @import 'colours';
 @import 'mixins';
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 body {
   @include oColorsFor(page, background);
+  @include font-smoothing;
 
   margin: 0;
   border: 0;
   font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  color: #333;
 }
+  main {
+    > h1 {
+      font-size: 70px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    > h2 {
+      font-size: 40px;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
 
   .site-header {
     padding: 12px 0 8px;
@@ -49,46 +72,107 @@ body {
 
 
   .group {
-    background: #fffbf7;
     @include shadow-3dp;
+
+    background: #fffbf7;
+    padding: 10px;
+    margin-bottom: 40px;
+
+    > h3 {
+      font-size: 30px;
+      margin: 10px 0;
+      font-weight: 500;
+      display: inline;
+    }
+    
+    // &__count {
+    //   display: inline;
+    //   margin-left: 8px;
+    // }
+
+    > h4 {
+      font-size: 20px;
+      margin: 10px 0;
+      color: #a7a59b;
+      font-weight: 400;
+    }
   }
     .award {
-      padding: 10px;
+      // padding: 10px;
+      break-inside: avoid-column;
+      overflow: hidden; // possibly needed for Fx to make avoid-column work?
+      // color: #333;
 
       &:not(:last-child) {
-        border-bottom: 1px solid #e9decf;
+        padding-bottom: 20px;
       }
       
       > h5 {
-        font-size: 16px;
+        font-size: 15px;
         margin: 0;
+        font-weight: 600;
+        color: #222;
       }
 
       &__suffixes {
-        font-weight: 400;
-        font-size: 0.75em;
+        font-weight: 500;
+        font-size: 0.8em;
       }
 
       &__county {
-        font-weight: 300;
+        font-weight: 400;
         color: #a7a59b;
       }
 
       &__citation {
         margin: 0;
+        font-size: 15px;
+        color: #555;
       }
     }
 
 @include oGridRespondTo(S) {
   .group {
-    width: 400px;
-    margin: 0 auto;
+    width: 440px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 3px;
   }
 }
 
 @include oGridRespondTo(M) {
   .group {
-    
+    width: 700px;
+    padding: 15px;
   }
+    .recipients {
+      columns: 2 300px;
+      // column-count: 2;
+      // column-width: 300px;
+      column-gap: 40px;
+      // column-fill: auto;
+      // column-rule: 1px dotted #ddd;
+    }
+}
+
+@include oGridRespondTo(L) {
+  .group {
+    width: 900px;
+    padding: 20px;
+  }
+    .award {
+
+    }
+}
+
+@include oGridRespondTo(XL) {
+  .group {
+    width: 1180px;
+  }
+    .recipients {
+      column-count: 3;
+      column-gap: 30px;
+      // column-rule: 1px dotted #ddd;
+      // column-width: 300px;
+    }
 }

@@ -6,9 +6,9 @@
 @include oFontsInclude(MetricWeb, $weight: light, $style: normal);
 @include oFontsInclude(MetricWeb, $weight: regular, $style: normal);
 // @include oFontsInclude(MetricWeb, $weight: regular, $style: italic);
-// @include oFontsInclude(MetricWeb, $weight: medium, $style: normal);
+@include oFontsInclude(MetricWeb, $weight: medium, $style: normal);
 @include oFontsInclude(MetricWeb, $weight: 'semibold', $style: normal);
-// @include oFontsInclude(MetricWeb, $weight: bold, $style: normal);
+@include oFontsInclude(MetricWeb, $weight: bold, $style: normal);
 // @include oFontsInclude(MetricWeb, $weight: bold, $style: italic);
 
 ////////////////////////////////////////////////////////////////////////
