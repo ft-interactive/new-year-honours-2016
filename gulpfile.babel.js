@@ -264,8 +264,8 @@ gulp.task('download-data', () => fetch(SPREADSHEET_URL)
           return honour;
         })
         .sort((a, b) => {
-          if (a.surname < b.surname) return -1;
-          if (b.surname < a.surname) return 1;
+          if (a.surname.toLowerCase() < b.surname.toLowerCase()) return -1;
+          if (b.surname.toLowerCase() < a.surname.toLowerCase()) return 1;
           return 0;
         })
       ;
