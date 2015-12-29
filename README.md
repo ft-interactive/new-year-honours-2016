@@ -1,16 +1,14 @@
-# [Guffipedia](https://ig.ft.com/sites/guffipedia/) [![Build Status][travis-image]][travis-url]
-
-> The FT Guffipedia houses the finest corporate drivel from the archive of [Lucy Kellaway's annual Golden Flannel Awards](https://next.ft.com/stream/authorsId/Q0ItMDAwMDkyNg==-QXV0aG9ycw==) - as well as fresh twaddle submitted by readers and certified by Lucy Kellaway.
+# [New Year Honours List, 2015](https://ft-interactive.github.com/new-year-honours-list-2015/) [![Build Status][travis-image]][travis-url]
 
 ## Usage
 
-To begin, clone this repo and running `npm i`.
+To begin, clone this repo and running `npm install`.
 
 You'll then need a `.env` file in the root of the project with a `SPREADSHEET_KEY` variable.
 
 From then on run the app in development mode:
 
-```shell
+```sh
 > npm start 
 ```
 
@@ -27,5 +25,5 @@ This software is published by the Financial Times under the [MIT licence](http:/
 
 Please note the MIT licence includes only the software, and none of the content of this site, which is Copyright (c) Financial Times Ltd. For more information about re-publishing FT content, please contact our [syndication department](http://syndication.ft.com/).
 
-[travis-url]: https://travis-ci.org/ft-interactive/guffipedia
-[travis-image]: https://travis-ci.org/ft-interactive/guffipedia.svg
+[travis-url]: https://travis-ci.org/ft-interactive/new-year-honours-list-2015
+[travis-image]: https://travis-ci.org/ft-interactive/new-year-honours-list-2015.svg
