@@ -4,11 +4,22 @@
 
     <h2>Breakdown</h2>
 
-    <figure>TK: stacked horizontal bars showing honour types and male/female split</figure>
+    <figure class="chart">
+      <div class="chart__key">
+        <div class="chart__key-male">Male</div>
+        <div class="chart__key-female">Female</div>
+      </div>
+      {{#groups}}
+      <div class="chart__group">
+        <abbr title="{{name}}" class="chart__label">{{shortname}}</abbr>
+        <span class="chart__bar"><span class="chart__male" style="width:{{maleBarWidth}}%"></span><span class="chart__female" style="width:{{femaleBarWidth}}%"></span><span class="chart__count" style="left:{{barWidth}}%">{{count}}</span></span>
+      </div>
+      {{/groups}}
+    </figure>
 
     <h2>The complete list</h2>
 
-    <nav>TK sticky nav bar for honour types</nav>
+    {{!-- <nav>TK sticky nav bar for honour types</nav> --}}
 
     {{#groups}}
     <section class="group" id="{{id}}">

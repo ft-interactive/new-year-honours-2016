@@ -97,9 +97,9 @@ function getBundlers(useWatchify) {
   });
 }
 
-function slugify(value) {
-  return value.toLowerCase().trim().replace(/ /g, '-').replace(/['\(\)]/g, '');
-}
+// function slugify(value) {
+//   return value.toLowerCase().trim().replace(/ /g, '-').replace(/['\(\)]/g, '');
+// }
 
 // compresses images (client => dist)
 gulp.task('compress-images', () => gulp.src('client/**/*.{jpg,png,gif,svg}')
@@ -246,11 +246,23 @@ const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${proces
 gulp.task('download-data', () => fetch(SPREADSHEET_URL)
   .then(res => res.json())
   .then(({honours, groups, options}) => {
+    let maleTotal = 0;
+    let femaleTotal = 0;
+    let highestCount = 0;
+
     // augment groups with more info
-    groups.forEach(group => {
+    for (const group of groups) {
+      group.maleCount = 0;
+      group.femaleCount = 0;
+
       // add recipients
       group.recipients = honours
         .filter(honour => honour.honour === group.male.letters || honour.honour === group.female.letters)
+        .map(honour => {
+          if (honour.gender === 'F') group.femaleCount += 1;
+          else group.maleCount += 1;
+          return honour;
+        })
         .sort((a, b) => {
           if (a.surname < b.surname) return -1;
           if (b.surname < a.surname) return 1;
@@ -259,8 +271,20 @@ gulp.task('download-data', () => fetch(SPREADSHEET_URL)
       ;
 
       group.count = group.recipients.length;
-    });
+      highestCount = Math.max(highestCount, group.count);
 
+      maleTotal += group.maleCount;
+      femaleTotal += group.femaleCount;
+    }
+
+    // add bar width
+    for (const group of groups) {
+      group.maleBarWidth = (group.maleCount / highestCount) * 100;
+      group.femaleBarWidth = (group.femaleCount / highestCount) * 100;
+      group.barWidth = group.maleBarWidth + group.femaleBarWidth;
+    }
+
+    // sort smallest group first
     groups.sort((a, b) => {
       if (a.count < b.count) return -1;
       if (b.count < a.count) return 1;

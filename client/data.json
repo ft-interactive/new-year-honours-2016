@@ -12,6 +12,8 @@
         "letters": "DCB",
         "title": "Dame Commander of the Order of the Bath"
       },
+      "maleCount": 1,
+      "femaleCount": 0,
       "recipients": [
         {
           "gender": "M",
@@ -24,7 +26,10 @@
           "suffixes": null
         }
       ],
-      "count": 1
+      "count": 1,
+      "maleBarWidth": 0.21141649048625794,
+      "femaleBarWidth": 0,
+      "barWidth": 0.21141649048625794
     },
     {
       "shortname": "GBE",
@@ -38,6 +43,8 @@
         "letters": "GBE",
         "title": "Dame Grand Cross of the Order of the British Empire"
       },
+      "maleCount": 1,
+      "femaleCount": 0,
       "recipients": [
         {
           "gender": "M",
@@ -50,7 +57,10 @@
           "suffixes": "FRS"
         }
       ],
-      "count": 1
+      "count": 1,
+      "maleBarWidth": 0.21141649048625794,
+      "femaleBarWidth": 0,
+      "barWidth": 0.21141649048625794
     },
     {
       "shortname": "CH",
@@ -64,6 +74,8 @@
         "letters": "CH",
         "title": "Companion of Honour"
       },
+      "maleCount": 3,
+      "femaleCount": 1,
       "recipients": [
         {
           "gender": "M",
@@ -106,7 +118,10 @@
           "suffixes": "DL"
         }
       ],
-      "count": 4
+      "count": 4,
+      "maleBarWidth": 0.6342494714587738,
+      "femaleBarWidth": 0.21141649048625794,
+      "barWidth": 0.8456659619450317
     },
     {
       "shortname": "CB",
@@ -120,6 +135,8 @@
         "letters": "CB",
         "title": "Companion of the Order of the Bath"
       },
+      "maleCount": 6,
+      "femaleCount": 1,
       "recipients": [
         {
           "gender": "M",
@@ -192,7 +209,10 @@
           "suffixes": null
         }
       ],
-      "count": 7
+      "count": 7,
+      "maleBarWidth": 1.2684989429175475,
+      "femaleBarWidth": 0.21141649048625794,
+      "barWidth": 1.4799154334038054
     },
     {
       "shortname": "KBE/DBE",
@@ -206,6 +226,8 @@
         "letters": "DBE",
         "title": "Dame Commander of the Order of the British Empire"
       },
+      "maleCount": 0,
+      "femaleCount": 15,
       "recipients": [
         {
           "gender": "F",
@@ -358,10 +380,13 @@
           "suffixes": "CBE"
         }
       ],
-      "count": 15
+      "count": 15,
+      "maleBarWidth": 0,
+      "femaleBarWidth": 3.171247357293869,
+      "barWidth": 3.171247357293869
     },
     {
-      "shortname": "Knighthoods",
+      "shortname": "Kt",
       "id": "kt",
       "name": "Knights Bachelor",
       "male": {
@@ -372,6 +397,8 @@
         "letters": null,
         "title": null
       },
+      "maleCount": 21,
+      "femaleCount": 0,
       "recipients": [
         {
           "gender": "M",
@@ -584,7 +611,10 @@
           "suffixes": null
         }
       ],
-      "count": 21
+      "count": 21,
+      "maleBarWidth": 4.439746300211417,
+      "femaleBarWidth": 0,
+      "barWidth": 4.439746300211417
     },
     {
       "shortname": "CBE",
@@ -598,6 +628,8 @@
         "letters": "CBE",
         "title": "Commander of the Order of the British Empire"
       },
+      "maleCount": 55,
+      "femaleCount": 52,
       "recipients": [
         {
           "gender": "F",
@@ -1542,6 +1574,16 @@
         {
           "gender": "F",
           "honour": "CBE",
+          "citation": "Chair, Health and Care Professions Council. For services to Health and Care.",
+          "county": "West Sussex",
+          "name": "Dr Anna Danielle VAN DER GAAG",
+          "forenames": "Dr Anna Danielle",
+          "surname": "van der Gaag",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "CBE",
           "citation": "Principal and Chief Executive, Burton and South Derbyshire College. For services to Further Education.",
           "county": "West Midlands",
           "name": "Mrs Dawn Patricia WARD OBE",
@@ -1658,19 +1700,12 @@
           "forenames": "Mr Andrew",
           "surname": "Wyllie",
           "suffixes": "FREng"
-        },
-        {
-          "gender": "F",
-          "honour": "CBE",
-          "citation": "Chair, Health and Care Professions Council. For services to Health and Care.",
-          "county": "West Sussex",
-          "name": "Dr Anna Danielle VAN DER GAAG",
-          "forenames": "Dr Anna Danielle",
-          "surname": "van der Gaag",
-          "suffixes": null
         }
       ],
-      "count": 107
+      "count": 107,
+      "maleBarWidth": 11.627906976744185,
+      "femaleBarWidth": 10.993657505285412,
+      "barWidth": 22.621564482029598
     },
     {
       "shortname": "OBE",
@@ -1684,6 +1719,8 @@
         "letters": "OBE",
         "title": "Officer of the Order of the British Empire"
       },
+      "maleCount": 145,
+      "femaleCount": 98,
       "recipients": [
         {
           "gender": "M",
@@ -4116,7 +4153,10 @@
           "suffixes": "TD DL"
         }
       ],
-      "count": 243
+      "count": 243,
+      "maleBarWidth": 30.655391120507396,
+      "femaleBarWidth": 20.718816067653275,
+      "barWidth": 51.37420718816067
     },
     {
       "shortname": "BEM",
@@ -4130,6 +4170,8 @@
         "letters": "BEM",
         "title": "Medal of the Order of the British Empire"
       },
+      "maleCount": 127,
+      "femaleCount": 165,
       "recipients": [
         {
           "gender": "F",
@@ -4642,22 +4684,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "BEM",
-          "citation": "Manager, New Park Day Centre, Islington. For services to the Care of Older People.",
-          "county": "London",
-          "name": "Mrs Maureen Kathleen COLLINS",
-          "forenames": "Mrs Maureen Kathleen",
-          "surname": "Collins",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "BEM",
           "citation": "Operations Field Team Leader, Environment Agency. For services to community in Worcestershire",
           "county": "Herefordshire",
           "name": "Mr Donald COLLINS",
           "forenames": "Mr Donald",
+          "surname": "Collins",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "BEM",
+          "citation": "Manager, New Park Day Centre, Islington. For services to the Care of Older People.",
+          "county": "London",
+          "name": "Mrs Maureen Kathleen COLLINS",
+          "forenames": "Mrs Maureen Kathleen",
           "surname": "Collins",
           "suffixes": null
         },
@@ -4804,20 +4846,20 @@
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "For services to the community in Great Totham, Essex.",
-          "county": "Essex",
-          "name": "Mrs Janet Mary DAVIES",
-          "forenames": "Mrs Janet Mary",
+          "citation": "School Crossing Patrol, Ysgol Y Traeth, Barmouth. For services to the community in Barmouth, Gwynedd.",
+          "county": "Gwynedd",
+          "name": "Mrs Sheila Elizabeth DAVIES",
+          "forenames": "Mrs Sheila Elizabeth",
           "surname": "Davies",
           "suffixes": null
         },
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "School Crossing Patrol, Ysgol Y Traeth, Barmouth. For services to the community in Barmouth, Gwynedd.",
-          "county": "Gwynedd",
-          "name": "Mrs Sheila Elizabeth DAVIES",
-          "forenames": "Mrs Sheila Elizabeth",
+          "citation": "For services to the community in Great Totham, Essex.",
+          "county": "Essex",
+          "name": "Mrs Janet Mary DAVIES",
+          "forenames": "Mrs Janet Mary",
           "surname": "Davies",
           "suffixes": null
         },
@@ -4839,6 +4881,16 @@
           "name": "Mrs Rachael DAVISON",
           "forenames": "Mrs Rachael",
           "surname": "Davison",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "BEM",
+          "citation": "Founder, Guggleton Farm Arts Project. For services to Artists in Dorset.",
+          "county": "Somerset",
+          "name": "Mrs Isabel DE PELET",
+          "forenames": "Mrs Isabel",
+          "surname": "de Pelet",
           "suffixes": null
         },
         {
@@ -5582,22 +5634,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "BEM",
-          "citation": "For voluntary service to Llangunnor Primary School, Carmarthenshire and the Women's Institute.",
-          "county": "Dyfed",
-          "name": "Mrs Zena Valerie JENKINS",
-          "forenames": "Mrs Zena Valerie",
-          "surname": "Jenkins",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "BEM",
           "citation": "For voluntary service to the community particularly Young People in Clydach Vale and in the Mid Rhondda Valley, Rhondda Cynon Taff.",
           "county": "Mid Glamorgan",
           "name": "Mr Keith JENKINS",
           "forenames": "Mr Keith",
+          "surname": "Jenkins",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "BEM",
+          "citation": "For voluntary service to Llangunnor Primary School, Carmarthenshire and the Women's Institute.",
+          "county": "Dyfed",
+          "name": "Mrs Zena Valerie JENKINS",
+          "forenames": "Mrs Zena Valerie",
           "surname": "Jenkins",
           "suffixes": null
         },
@@ -5712,22 +5764,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "BEM",
-          "citation": "Bereavement Officer, Royal Glamorgan Hospital, Rhondda Cynon Taff. For services to the NHS.",
-          "county": "Mid Glamorgan",
-          "name": "Mrs Paula LEWIS",
-          "forenames": "Mrs Paula",
-          "surname": "Lewis",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "BEM",
           "citation": "For services to Music and the community in Newport, South Wales.",
           "county": "Gwent",
           "name": "Mr Thomas William Golding LEWIS",
           "forenames": "Mr Thomas William Golding",
+          "surname": "Lewis",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "BEM",
+          "citation": "Bereavement Officer, Royal Glamorgan Hospital, Rhondda Cynon Taff. For services to the NHS.",
+          "county": "Mid Glamorgan",
+          "name": "Mrs Paula LEWIS",
+          "forenames": "Mrs Paula",
           "surname": "Lewis",
           "suffixes": null
         },
@@ -5994,20 +6046,20 @@
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "Fundraising Volunteer and Divisional Vice-President, NSPCC NI. For services to Charitable Fundraising.",
-          "county": "Tyrone",
-          "name": "Mrs Mary Margaret MITCHELL",
-          "forenames": "Mrs Mary Margaret",
+          "citation": "Cleaner, Annan Police Station. For services to Dumfries and Galloway Division, Police Scotland.",
+          "county": "Dumfries",
+          "name": "Mrs Catherine Ann MITCHELL",
+          "forenames": "Mrs Catherine Ann",
           "surname": "Mitchell",
           "suffixes": null
         },
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "Cleaner, Annan Police Station. For services to Dumfries and Galloway Division, Police Scotland.",
-          "county": "Dumfries",
-          "name": "Mrs Catherine Ann MITCHELL",
-          "forenames": "Mrs Catherine Ann",
+          "citation": "Fundraising Volunteer and Divisional Vice-President, NSPCC NI. For services to Charitable Fundraising.",
+          "county": "Tyrone",
+          "name": "Mrs Mary Margaret MITCHELL",
+          "forenames": "Mrs Mary Margaret",
           "surname": "Mitchell",
           "suffixes": null
         },
@@ -6044,20 +6096,20 @@
         {
           "gender": "M",
           "honour": "BEM",
-          "citation": "For services to Sport and to the community in Northern Ireland.",
-          "county": "Down",
-          "name": "Mr Lawrence Spence MURPHY",
-          "forenames": "Mr Lawrence Spence",
+          "citation": "For services to the community in Northern Ireland.",
+          "county": "Belfast",
+          "name": "Mr Richard Alexus MURPHY",
+          "forenames": "Mr Richard Alexus",
           "surname": "Murphy",
           "suffixes": null
         },
         {
           "gender": "M",
           "honour": "BEM",
-          "citation": "For services to the community in Northern Ireland.",
-          "county": "Belfast",
-          "name": "Mr Richard Alexus MURPHY",
-          "forenames": "Mr Richard Alexus",
+          "citation": "For services to Sport and to the community in Northern Ireland.",
+          "county": "Down",
+          "name": "Mr Lawrence Spence MURPHY",
+          "forenames": "Mr Lawrence Spence",
           "surname": "Murphy",
           "suffixes": null
         },
@@ -6344,6 +6396,16 @@
         {
           "gender": "F",
           "honour": "BEM",
+          "citation": "Founder, Withington Hedgehog Care Trust. For services to the Rescue and Rehabilitation of Hedgehogs.",
+          "county": "Greater Manchester",
+          "name": "Miss Barbara Elizabeth ROBERTS",
+          "forenames": "Miss Barbara Elizabeth",
+          "surname": "Roberts",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "BEM",
           "citation": "For services to the community in Blaenavon, Torfaen.",
           "county": "Gwent",
           "name": "Mrs Phyllis ROBERTS JP",
@@ -6354,11 +6416,11 @@
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "Founder, Withington Hedgehog Care Trust. For services to the Rescue and Rehabilitation of Hedgehogs.",
+          "citation": "School Volunteer and Chair, Old Girls’ Association, Bury Girls Grammar School. For services to Education.",
           "county": "Greater Manchester",
-          "name": "Miss Barbara Elizabeth ROBERTS",
-          "forenames": "Miss Barbara Elizabeth",
-          "surname": "Roberts",
+          "name": "Mrs Diana Elizabeth ROBINSON",
+          "forenames": "Mrs Diana Elizabeth",
+          "surname": "Robinson",
           "suffixes": null
         },
         {
@@ -6368,16 +6430,6 @@
           "county": "Durham",
           "name": "Mr David Malcolm ROBINSON",
           "forenames": "Mr David Malcolm",
-          "surname": "Robinson",
-          "suffixes": null
-        },
-        {
-          "gender": "F",
-          "honour": "BEM",
-          "citation": "School Volunteer and Chair, Old Girls’ Association, Bury Girls Grammar School. For services to Education.",
-          "county": "Greater Manchester",
-          "name": "Mrs Diana Elizabeth ROBINSON",
-          "forenames": "Mrs Diana Elizabeth",
           "surname": "Robinson",
           "suffixes": null
         },
@@ -6532,16 +6584,6 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "BEM",
-          "citation": "Volunteer, Ivington Church of England Primary School, Hereford. For services to Education.",
-          "county": "Herefordshire",
-          "name": "Mrs Pamela Jean SMITH",
-          "forenames": "Mrs Pamela Jean",
-          "surname": "Smith",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "BEM",
           "citation": "For services to the Heritage of Robert Burns.",
@@ -6558,6 +6600,16 @@
           "county": "Derbyshire",
           "name": "Mr Reginald Dennis SMITH",
           "forenames": "Mr Reginald Dennis",
+          "surname": "Smith",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "BEM",
+          "citation": "Volunteer, Ivington Church of England Primary School, Hereford. For services to Education.",
+          "county": "Herefordshire",
+          "name": "Mrs Pamela Jean SMITH",
+          "forenames": "Mrs Pamela Jean",
           "surname": "Smith",
           "suffixes": null
         },
@@ -6874,12 +6926,12 @@
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "President, RNLI Flamborough Lifeboat Supporters. For services to the RNLI.",
-          "county": "East Riding of Yorkshire",
-          "name": "Mrs Gillian Susan WATSON JP",
-          "forenames": "Mrs Gillian Susan",
+          "citation": "Staff Nurse, Hairmyres Hospital, East Kilbride. For services to Healthcare and charity.",
+          "county": "Lanarkshire",
+          "name": "Mrs Dorothy WATSON",
+          "forenames": "Mrs Dorothy",
           "surname": "Watson",
-          "suffixes": "JP"
+          "suffixes": null
         },
         {
           "gender": "M",
@@ -6894,12 +6946,12 @@
         {
           "gender": "F",
           "honour": "BEM",
-          "citation": "Staff Nurse, Hairmyres Hospital, East Kilbride. For services to Healthcare and charity.",
-          "county": "Lanarkshire",
-          "name": "Mrs Dorothy WATSON",
-          "forenames": "Mrs Dorothy",
+          "citation": "President, RNLI Flamborough Lifeboat Supporters. For services to the RNLI.",
+          "county": "East Riding of Yorkshire",
+          "name": "Mrs Gillian Susan WATSON JP",
+          "forenames": "Mrs Gillian Susan",
           "surname": "Watson",
-          "suffixes": null
+          "suffixes": "JP"
         },
         {
           "gender": "M",
@@ -7040,19 +7092,12 @@
           "forenames": "Mr Robert Stuart",
           "surname": "Wysome",
           "suffixes": null
-        },
-        {
-          "gender": "F",
-          "honour": "BEM",
-          "citation": "Founder, Guggleton Farm Arts Project. For services to Artists in Dorset.",
-          "county": "Somerset",
-          "name": "Mrs Isabel DE PELET",
-          "forenames": "Mrs Isabel",
-          "surname": "de Pelet",
-          "suffixes": null
         }
       ],
-      "count": 292
+      "count": 292,
+      "maleBarWidth": 26.849894291754755,
+      "femaleBarWidth": 34.883720930232556,
+      "barWidth": 61.73361522198731
     },
     {
       "shortname": "MBE",
@@ -7066,6 +7111,8 @@
         "letters": "MBE",
         "title": "Member of the Order of the British Empire"
       },
+      "maleCount": 227,
+      "femaleCount": 246,
       "recipients": [
         {
           "gender": "F",
@@ -7158,22 +7205,22 @@
           "suffixes": null
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Lately Foster Carer, Hampshire County Council. For services to Children and Families.",
-          "county": "Dorset",
-          "name": "Mr Michael James ANDREWS",
-          "forenames": "Mr Michael James",
-          "surname": "Andrews",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "Lately Foster Carer, Hampshire County Council. For services to Children and Families.",
           "county": "Dorset",
           "name": "Mrs Valerie Claire ANDREWS",
           "forenames": "Mrs Valerie Claire",
+          "surname": "Andrews",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Lately Foster Carer, Hampshire County Council. For services to Children and Families.",
+          "county": "Dorset",
+          "name": "Mr Michael James ANDREWS",
+          "forenames": "Mr Michael James",
           "surname": "Andrews",
           "suffixes": null
         },
@@ -7320,20 +7367,20 @@
         {
           "gender": "M",
           "honour": "MBE",
-          "citation": "For services to the community in Rossendale, Lancashire.",
-          "county": "Lancashire",
-          "name": "Mr Ronald BARKER",
-          "forenames": "Mr Ronald",
+          "citation": "Jazz Trumpeter and Composer. For services to Jazz.",
+          "county": "London",
+          "name": "Mr Guy Jeffery BARKER",
+          "forenames": "Mr Guy Jeffery",
           "surname": "Barker",
           "suffixes": null
         },
         {
           "gender": "M",
           "honour": "MBE",
-          "citation": "Jazz Trumpeter and Composer. For services to Jazz.",
-          "county": "London",
-          "name": "Mr Guy Jeffery BARKER",
-          "forenames": "Mr Guy Jeffery",
+          "citation": "For services to the community in Rossendale, Lancashire.",
+          "county": "Lancashire",
+          "name": "Mr Ronald BARKER",
+          "forenames": "Mr Ronald",
           "surname": "Barker",
           "suffixes": null
         },
@@ -7358,22 +7405,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "For services to Disability Sport.",
-          "county": "West Midlands",
-          "name": "Mrs April Margaret BARRETT",
-          "forenames": "Mrs April Margaret",
-          "surname": "Barrett",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "MBE",
           "citation": "Keeper of the Guard's Chapel. For services to the Army.",
           "county": "London",
           "name": "Mr Frederick Thomas BARRETT",
           "forenames": "Mr Frederick Thomas",
+          "surname": "Barrett",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "For services to Disability Sport.",
+          "county": "West Midlands",
+          "name": "Mrs April Margaret BARRETT",
+          "forenames": "Mrs April Margaret",
           "surname": "Barrett",
           "suffixes": null
         },
@@ -7408,22 +7455,22 @@
           "suffixes": "JP"
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Fundraiser, Leukaemia and Lymphoma NI. For services to Leukaemia Research.",
-          "county": "Down",
-          "name": "Mr Thomas BAXTER",
-          "forenames": "Mr Thomas",
-          "surname": "Baxter",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "Fundraiser, Leukaemia and Lymphoma NI. For services to Leukaemia Research.",
           "county": "Down",
           "name": "Mrs Rosemond Margaret BAXTER",
           "forenames": "Mrs Rosemond Margaret",
+          "surname": "Baxter",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Fundraiser, Leukaemia and Lymphoma NI. For services to Leukaemia Research.",
+          "county": "Down",
+          "name": "Mr Thomas BAXTER",
+          "forenames": "Mr Thomas",
           "surname": "Baxter",
           "suffixes": null
         },
@@ -7518,22 +7565,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Foster Carer, Hampshire County Council. For services to Children and Families.",
-          "county": "Hampshire",
-          "name": "Mrs Cynthia Ann BLAKE",
-          "forenames": "Mrs Cynthia Ann",
-          "surname": "Blake",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "MBE",
           "citation": "Foster Carer, Hampshire County Council. For services to Children and Families.",
           "county": "Hampshire",
           "name": "Mr Kenneth BLAKE",
           "forenames": "Mr Kenneth",
+          "surname": "Blake",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Foster Carer, Hampshire County Council. For services to Children and Families.",
+          "county": "Hampshire",
+          "name": "Mrs Cynthia Ann BLAKE",
+          "forenames": "Mrs Cynthia Ann",
           "surname": "Blake",
           "suffixes": null
         },
@@ -8100,12 +8147,12 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Specialist in Dental Public Health, Greater Manchester and the Dental Observatory, Public Health England. For services to Dental Public Health.",
+          "citation": "For services to the Voluntary and Social Enterprise Sectors throughout Cheshire, especially in Ellesmere Port.",
           "county": "Cheshire",
-          "name": "Dr Gillian DAVIES",
-          "forenames": "Dr Gillian",
+          "name": "Mrs Anne Mary DAVIES DL",
+          "forenames": "Mrs Anne Mary",
           "surname": "Davies",
-          "suffixes": null
+          "suffixes": "DL"
         },
         {
           "gender": "M",
@@ -8120,12 +8167,12 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "For services to the Voluntary and Social Enterprise Sectors throughout Cheshire, especially in Ellesmere Port.",
+          "citation": "Specialist in Dental Public Health, Greater Manchester and the Dental Observatory, Public Health England. For services to Dental Public Health.",
           "county": "Cheshire",
-          "name": "Mrs Anne Mary DAVIES DL",
-          "forenames": "Mrs Anne Mary",
+          "name": "Dr Gillian DAVIES",
+          "forenames": "Dr Gillian",
           "surname": "Davies",
-          "suffixes": "DL"
+          "suffixes": null
         },
         {
           "gender": "F",
@@ -8158,22 +8205,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Lead Scientist, West Midlands. For services to Genomic Technologies.",
-          "county": "Oxfordshire",
-          "name": "Mrs Eileen Valerie DAVISON",
-          "forenames": "Mrs Eileen Valerie",
-          "surname": "Davison",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "MBE",
           "citation": "Higher Executive Officer, Ministry of Defence. For services to Armed Forces Personnel.",
           "county": "Buckinghamshire",
           "name": "Mr Stephen DAVISON",
           "forenames": "Mr Stephen",
+          "surname": "Davison",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Lead Scientist, West Midlands. For services to Genomic Technologies.",
+          "county": "Oxfordshire",
+          "name": "Mrs Eileen Valerie DAVISON",
+          "forenames": "Mrs Eileen Valerie",
           "surname": "Davison",
           "suffixes": null
         },
@@ -8195,6 +8242,16 @@
           "name": "Mr Andrew DE FREITAS",
           "forenames": "Mr Andrew",
           "surname": "De Freitas",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Chairman, Overlord Embroidery Trust. For services to Needlework and to charity in Somerset.",
+          "county": "Somerset",
+          "name": "Countess Carolyn Mary DE SALIS",
+          "forenames": "Countess Carolyn Mary",
+          "surname": "de Salis",
           "suffixes": null
         },
         {
@@ -8270,20 +8327,20 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Chief Executive Officer, Fight 4 Change Foundation. For services to Community Sport.",
-          "county": "London",
-          "name": "Ms Rebecca DONNELLY",
-          "forenames": "Ms Rebecca",
+          "citation": "Higher Officer, Border Force South East and Europe, Home Office. For services to Child Protection and voluntary service in Canterbury.",
+          "county": "Kent",
+          "name": "Mrs Sylvia Lesley DONNELLY",
+          "forenames": "Mrs Sylvia Lesley",
           "surname": "Donnelly",
           "suffixes": null
         },
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Higher Officer, Border Force South East and Europe, Home Office. For services to Child Protection and voluntary service in Canterbury.",
-          "county": "Kent",
-          "name": "Mrs Sylvia Lesley DONNELLY",
-          "forenames": "Mrs Sylvia Lesley",
+          "citation": "Chief Executive Officer, Fight 4 Change Foundation. For services to Community Sport.",
+          "county": "London",
+          "name": "Ms Rebecca DONNELLY",
+          "forenames": "Ms Rebecca",
           "surname": "Donnelly",
           "suffixes": null
         },
@@ -9058,22 +9115,22 @@
           "suffixes": null
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Head of the School of Physics and Astronomy, University of Glasgow. For services to Public Engagement in Science.",
-          "county": "Glasgow",
-          "name": "Professor Martin Anthony HENDRY",
-          "forenames": "Professor Martin Anthony",
-          "surname": "Hendry",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "Team Leader, Dunfermline Station Scottish Ambulance Service. For services to Emergency Healthcare in Fife.",
           "county": "Fife",
           "name": "Miss Donna Frances HENDRY",
           "forenames": "Miss Donna Frances",
+          "surname": "Hendry",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Head of the School of Physics and Astronomy, University of Glasgow. For services to Public Engagement in Science.",
+          "county": "Glasgow",
+          "name": "Professor Martin Anthony HENDRY",
+          "forenames": "Professor Martin Anthony",
           "surname": "Hendry",
           "suffixes": null
         },
@@ -9188,6 +9245,16 @@
           "suffixes": null
         },
         {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Higher Executive Officer, Stratford Benefit Centre. For services to Customers and charitable services.",
+          "county": "London",
+          "name": "Miss Susan Patricia HOPKINS",
+          "forenames": "Miss Susan Patricia",
+          "surname": "Hopkins",
+          "suffixes": null
+        },
+        {
           "gender": "M",
           "honour": "MBE",
           "citation": "Assistant Chief Officer, Special Constabulary, Essex Police. For services to the community in Essex.",
@@ -9204,16 +9271,6 @@
           "county": "Bedfordshire",
           "name": "Mrs Helena Marie HOPKINS",
           "forenames": "Mrs Helena Marie",
-          "surname": "Hopkins",
-          "suffixes": null
-        },
-        {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Higher Executive Officer, Stratford Benefit Centre. For services to Customers and charitable services.",
-          "county": "London",
-          "name": "Miss Susan Patricia HOPKINS",
-          "forenames": "Miss Susan Patricia",
           "surname": "Hopkins",
           "suffixes": null
         },
@@ -9408,22 +9465,22 @@
           "suffixes": null
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Social Entrepreneur. For services to Vulnerable People through User Voice.",
-          "county": "London",
-          "name": "Mr Mark John JOHNSON",
-          "forenames": "Mr Mark John",
-          "surname": "Johnson",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "Business Development Manager, Pure Energy Centre, Unst. For services to Renewable Energy and Charitable Fundraising in Shetland.",
           "county": "Shetland",
           "name": "Mrs Elizabeth Caroline JOHNSON",
           "forenames": "Mrs Elizabeth Caroline",
+          "surname": "Johnson",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Social Entrepreneur. For services to Vulnerable People through User Voice.",
+          "county": "London",
+          "name": "Mr Mark John JOHNSON",
+          "forenames": "Mr Mark John",
           "surname": "Johnson",
           "suffixes": null
         },
@@ -9678,22 +9735,22 @@
           "suffixes": null
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Senior Project Manager, Jankel Armouring Ltd. For services to the Armed Forces.",
-          "county": "Bristol",
-          "name": "Mr Melvin Kenneth LEE",
-          "forenames": "Mr Melvin Kenneth",
-          "surname": "Lee",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "Manager, Consolidated European Reporting System, Maritime and Coastguard Agency. For services to Ship Safety.",
           "county": "Aberdeenshire",
           "name": "Mrs Jane Slider LEE",
           "forenames": "Mrs Jane Slider",
+          "surname": "Lee",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Senior Project Manager, Jankel Armouring Ltd. For services to the Armed Forces.",
+          "county": "Bristol",
+          "name": "Mr Melvin Kenneth LEE",
+          "forenames": "Mr Melvin Kenneth",
           "surname": "Lee",
           "suffixes": null
         },
@@ -10508,22 +10565,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Community Reparation Officer, Surrey Youth Justice. For services to Restorative Justice.",
-          "county": "Surrey",
-          "name": "Mrs Eleanor Margaret PATERSON",
-          "forenames": "Mrs Eleanor Margaret",
-          "surname": "Paterson",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "MBE",
           "citation": "For services to Promoting Information Technology to Elderly People in the UK.",
           "county": "Suffolk",
           "name": "Mr Keith Russell PATERSON",
           "forenames": "Mr Keith Russell",
+          "surname": "Paterson",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Community Reparation Officer, Surrey Youth Justice. For services to Restorative Justice.",
+          "county": "Surrey",
+          "name": "Mrs Eleanor Margaret PATERSON",
+          "forenames": "Mrs Eleanor Margaret",
           "surname": "Paterson",
           "suffixes": null
         },
@@ -10718,22 +10775,22 @@
           "suffixes": null
         },
         {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Senior Officer, IT Skills and Capability Manager, Valuation Office Agency. For services to Young People through the ICT Apprentice Scheme.",
-          "county": "West Sussex",
-          "name": "Gail RAMSDEN",
-          "forenames": "Gail",
-          "surname": "Ramsden",
-          "suffixes": null
-        },
-        {
           "gender": "M",
           "honour": "MBE",
           "citation": "Lately Professor of Otolaryngology, Manchester Royal Infirmary and Honorary Professor, University of Manchester. For services to Otolaryngology.",
           "county": "Oxfordshire",
           "name": "Professor Richard Thomas RAMSDEN",
           "forenames": "Professor Richard Thomas",
+          "surname": "Ramsden",
+          "suffixes": null
+        },
+        {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Senior Officer, IT Skills and Capability Manager, Valuation Office Agency. For services to Young People through the ICT Apprentice Scheme.",
+          "county": "West Sussex",
+          "name": "Gail RAMSDEN",
+          "forenames": "Gail",
           "surname": "Ramsden",
           "suffixes": null
         },
@@ -10948,22 +11005,22 @@
           "suffixes": null
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Chief Examiner and Principal Moderator for GCSE Physical Education, Edexcel Exam Board. For services to Education.",
-          "county": "Middlesex",
-          "name": "Mr Anthony John SCOTT",
-          "forenames": "Mr Anthony John",
-          "surname": "Scott",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "Senior Executive Officer, Ministry of Defence. For services in support of Military Operations.",
           "county": "Shropshire",
           "name": "Mrs Carol SCOTT",
           "forenames": "Mrs Carol",
+          "surname": "Scott",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Chief Examiner and Principal Moderator for GCSE Physical Education, Edexcel Exam Board. For services to Education.",
+          "county": "Middlesex",
+          "name": "Mr Anthony John SCOTT",
+          "forenames": "Mr Anthony John",
           "surname": "Scott",
           "suffixes": null
         },
@@ -11090,10 +11147,10 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Macmillan Nurse Consultant, Cancer and Palliative Care, Borders General Hospital. For services to Oncology in the Scottish Borders",
-          "county": "Roxburgh, Ettrick and Lauderdale",
-          "name": "Mrs Judith Mary SMITH",
-          "forenames": "Mrs Judith Mary",
+          "citation": "Principal, Northern School of Contemporary Dance. For services to Dance.",
+          "county": "West Yorkshire",
+          "name": "Ms Janet SMITH",
+          "forenames": "Ms Janet",
           "surname": "Smith",
           "suffixes": null
         },
@@ -11130,10 +11187,10 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Principal, Northern School of Contemporary Dance. For services to Dance.",
-          "county": "West Yorkshire",
-          "name": "Ms Janet SMITH",
-          "forenames": "Ms Janet",
+          "citation": "Macmillan Nurse Consultant, Cancer and Palliative Care, Borders General Hospital. For services to Oncology in the Scottish Borders",
+          "county": "Roxburgh, Ettrick and Lauderdale",
+          "name": "Mrs Judith Mary SMITH",
+          "forenames": "Mrs Judith Mary",
           "surname": "Smith",
           "suffixes": null
         },
@@ -11358,22 +11415,22 @@
           "suffixes": null
         },
         {
-          "gender": "M",
-          "honour": "MBE",
-          "citation": "Lately Higher Officer, Border Force. For services to Border Security.",
-          "county": "Aberdeenshire",
-          "name": "Mr Robert WALKER",
-          "forenames": "Mr Robert",
-          "surname": "Walker",
-          "suffixes": null
-        },
-        {
           "gender": "F",
           "honour": "MBE",
           "citation": "For services to the community in Stony Stratford and Milton Keynes, Buckinghamshire.",
           "county": "Buckinghamshire",
           "name": "Mrs Joan WALKER",
           "forenames": "Mrs Joan",
+          "surname": "Walker",
+          "suffixes": null
+        },
+        {
+          "gender": "M",
+          "honour": "MBE",
+          "citation": "Lately Higher Officer, Border Force. For services to Border Security.",
+          "county": "Aberdeenshire",
+          "name": "Mr Robert WALKER",
+          "forenames": "Mr Robert",
           "surname": "Walker",
           "suffixes": null
         },
@@ -11398,12 +11455,12 @@
           "suffixes": null
         },
         {
-          "gender": "F",
+          "gender": "M",
           "honour": "MBE",
-          "citation": "Headteacher, Brynhyfryd Primary School, Briton Ferry. For services to Education and Young People in Neath Port Talbot.",
-          "county": "West Glamorgan",
-          "name": "Mrs Eunice WALTERS",
-          "forenames": "Mrs Eunice",
+          "citation": "For services to the community in Beaconsfield, Buckinghamshire.",
+          "county": "Buckinghamshire",
+          "name": "Mr Alan Martin WALTERS",
+          "forenames": "Mr Alan Martin",
           "surname": "Walters",
           "suffixes": null
         },
@@ -11418,12 +11475,12 @@
           "suffixes": null
         },
         {
-          "gender": "M",
+          "gender": "F",
           "honour": "MBE",
-          "citation": "For services to the community in Beaconsfield, Buckinghamshire.",
-          "county": "Buckinghamshire",
-          "name": "Mr Alan Martin WALTERS",
-          "forenames": "Mr Alan Martin",
+          "citation": "Headteacher, Brynhyfryd Primary School, Briton Ferry. For services to Education and Young People in Neath Port Talbot.",
+          "county": "West Glamorgan",
+          "name": "Mrs Eunice WALTERS",
+          "forenames": "Mrs Eunice",
           "surname": "Walters",
           "suffixes": null
         },
@@ -11550,20 +11607,20 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Personal Secretary and Secretarial Head of Profession, Ministry of Defence. For services to Defence.",
-          "county": "London",
-          "name": "Mrs Dawn Elizabeth WIGGINS",
-          "forenames": "Mrs Dawn Elizabeth",
+          "citation": "For services to Guiding in the Lancashire Borders.",
+          "county": "Greater Manchester",
+          "name": "Mrs Joyce WIGGINS",
+          "forenames": "Mrs Joyce",
           "surname": "Wiggins",
           "suffixes": null
         },
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "For services to Guiding in the Lancashire Borders.",
-          "county": "Greater Manchester",
-          "name": "Mrs Joyce WIGGINS",
-          "forenames": "Mrs Joyce",
+          "citation": "Personal Secretary and Secretarial Head of Profession, Ministry of Defence. For services to Defence.",
+          "county": "London",
+          "name": "Mrs Dawn Elizabeth WIGGINS",
+          "forenames": "Mrs Dawn Elizabeth",
           "surname": "Wiggins",
           "suffixes": null
         },
@@ -11590,10 +11647,10 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "For services to the Anglican Diocese of Bristol and to the community in Swindon, Wiltshire.",
-          "county": "Wiltshire",
-          "name": "Mrs Margaret WILLIAMS",
-          "forenames": "Mrs Margaret",
+          "citation": "Founder, Social Worker of the Year Awards. For services to the Social Work Profession in England.",
+          "county": "Northamptonshire",
+          "name": "Ms Beverley Anne WILLIAMS",
+          "forenames": "Ms Beverley Anne",
           "surname": "Williams",
           "suffixes": null
         },
@@ -11610,10 +11667,10 @@
         {
           "gender": "F",
           "honour": "MBE",
-          "citation": "Founder, Social Worker of the Year Awards. For services to the Social Work Profession in England.",
-          "county": "Northamptonshire",
-          "name": "Ms Beverley Anne WILLIAMS",
-          "forenames": "Ms Beverley Anne",
+          "citation": "For services to the Anglican Diocese of Bristol and to the community in Swindon, Wiltshire.",
+          "county": "Wiltshire",
+          "name": "Mrs Margaret WILLIAMS",
+          "forenames": "Mrs Margaret",
           "surname": "Williams",
           "suffixes": null
         },
@@ -11658,6 +11715,16 @@
           "suffixes": null
         },
         {
+          "gender": "F",
+          "honour": "MBE",
+          "citation": "Director of Outreach and Community Engagement, Glasgow Caledonian University. For services to Community Education in Glasgow.",
+          "county": "Glasgow",
+          "name": "Ms Eleanor WILSON",
+          "forenames": "Ms Eleanor",
+          "surname": "Wilson",
+          "suffixes": null
+        },
+        {
           "gender": "M",
           "honour": "MBE",
           "citation": "For services to the community in Kingstanding, Birmingham.",
@@ -11684,16 +11751,6 @@
           "county": "Cheshire",
           "name": "Mr Michael William WILSON",
           "forenames": "Mr Michael William",
-          "surname": "Wilson",
-          "suffixes": null
-        },
-        {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Director of Outreach and Community Engagement, Glasgow Caledonian University. For services to Community Education in Glasgow.",
-          "county": "Glasgow",
-          "name": "Ms Eleanor WILSON",
-          "forenames": "Ms Eleanor",
           "surname": "Wilson",
           "suffixes": null
         },
@@ -11786,19 +11843,12 @@
           "forenames": "Mr Muhammad",
           "surname": "Zahur",
           "suffixes": null
-        },
-        {
-          "gender": "F",
-          "honour": "MBE",
-          "citation": "Chairman, Overlord Embroidery Trust. For services to Needlework and to charity in Somerset.",
-          "county": "Somerset",
-          "name": "Countess Carolyn Mary DE SALIS",
-          "forenames": "Countess Carolyn Mary",
-          "surname": "de Salis",
-          "suffixes": null
         }
       ],
-      "count": 473
+      "count": 473,
+      "maleBarWidth": 47.99154334038055,
+      "femaleBarWidth": 52.00845665961945,
+      "barWidth": 100
     }
   ],
   "options": {

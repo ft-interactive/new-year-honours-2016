@@ -35,6 +35,8 @@ body {
   color: #333;
 }
   main {
+    padding-bottom: 50px;
+
     > h1 {
       font-size: 70px;
       font-weight: 300;
@@ -70,6 +72,83 @@ body {
         // }
       }
 
+  
+  .chart {
+    width: 300px;
+    margin: 0 auto 70px auto;
+    line-height: 1;
+    position: relative;
+
+    &__key {
+      position: absolute;
+      top: 0;
+      right: 20px;
+    }
+      &__key-male,
+      &__key-female {
+        margin-bottom: 6px;
+
+        &:before {
+          content: '';
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+          left: -5px;
+        }
+      }
+
+      &__key-male:before {
+        background-color: #6898c1;
+      }
+      &__key-female:before {
+        background-color: #bb6d82;
+      }
+
+    &__group {
+
+    }
+      &__label {
+        width: 60px;
+        display: inline-block;
+        text-align: right;
+        position: relative;
+        top: -8px;
+        padding-right: 4px;
+
+        &[title] { border-bottom: 0; }
+      }
+      &__bar {
+        position: relative;
+        width: 66%;
+        // height: 30px;
+        // overflow: hidden;
+        display: inline-block;
+        margin: 0;
+      }
+        &__male,
+        &__female {
+          height: 30px;
+          display: inline-block;
+          // opacity: 0.8;
+        }
+        &__male {
+          background: #6898c1;
+        }
+        &__female {
+          background: #bb6d82;
+        }
+        &__count {
+          position: absolute;
+          top: 7px;
+          margin-left: 3px;
+          color: #a7a59b;
+          font-weight: 500;
+        }
+  }
+
+
 
   .group {
     @include shadow-3dp;
@@ -92,7 +171,7 @@ body {
 
     > h4 {
       font-size: 20px;
-      margin: 10px 0;
+      margin: 10px 0 20px;
       color: #a7a59b;
       font-weight: 400;
     }
@@ -132,6 +211,8 @@ body {
     }
 
 @include oGridRespondTo(S) {
+  .chart { width: 440px; }
+
   .group {
     width: 440px;
     margin-left: auto;
@@ -141,6 +222,8 @@ body {
 }
 
 @include oGridRespondTo(M) {
+  .chart { width: 600px; }
+
   .group {
     width: 700px;
     padding: 15px;
@@ -156,6 +239,8 @@ body {
 }
 
 @include oGridRespondTo(L) {
+  .chart { width: 700px; }
+
   .group {
     width: 900px;
     padding: 20px;
