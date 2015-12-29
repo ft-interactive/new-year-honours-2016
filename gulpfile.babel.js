@@ -17,6 +17,7 @@ import vinylBuffer from 'vinyl-buffer';
 import watchify from 'watchify';
 import AnsiToHTML from 'ansi-to-html';
 import fetch from 'node-fetch';
+import mkdirp from 'mkdirp';
 
 const $ = require('auto-plug')('gulp');
 const ansiToHTML = new AnsiToHTML();
@@ -331,6 +332,7 @@ gulp.task('templates', () => {
     options,
   });
 
+  mkdirp.sync('.tmp');
   fs.writeFileSync(`.tmp/index.html`, mainPageHtml);
 });
 
