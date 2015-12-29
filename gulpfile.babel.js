@@ -3,25 +3,20 @@
 import 'dotenv/config';
 import browserify from 'browserify';
 import browserSync from 'browser-sync';
-import clone from 'gulp-clone';
 import del from 'del';
-import fetch from 'node-fetch';
 import fs from 'fs';
 import gulp from 'gulp';
 import Handlebars from 'handlebars';
 import igdeploy from 'igdeploy';
-import jsonTransform from 'gulp-json-transform';
-import mkdirp from 'mkdirp';
 import mergeStream from 'merge-stream';
 import path from 'path';
-import prettyData from 'gulp-pretty-data';
-import rename from 'gulp-rename';
 import runSequence from 'run-sequence';
 import source from 'vinyl-source-stream';
 import subdir from 'subdir';
 import vinylBuffer from 'vinyl-buffer';
 import watchify from 'watchify';
 import AnsiToHTML from 'ansi-to-html';
+import fetch from 'node-fetch';
 
 const $ = require('auto-plug')('gulp');
 const ansiToHTML = new AnsiToHTML();
@@ -174,7 +169,7 @@ gulp.task('serve', ['download-data', 'styles'], function (done) {
     });
 
     // refresh browser after other changes
-    gulp.watch(['client/styles/**/*.{scss,css}'], ['styles', 'scsslint', reload]);
+    gulp.watch(['client/styles/**/*.{scss,css}'], ['styles', reload]);
     gulp.watch(['client/images/**/*'], reload);
 
     gulp.watch(['./client/**/*.hbs', 'client/words.json'], () => {
@@ -223,11 +218,11 @@ gulp.task('eslint', () => gulp.src('client/scripts/**/*.js')
   .pipe($.if(env === 'production', $.eslint.failAfterError()))
 );
 
-// lints SCSS files
-gulp.task('scsslint', () => gulp.src('client/styles/**/*.scss')
-  .pipe($.scssLint({bundleExec: true}))
-  .pipe($.if(env === 'production', $.scssLint.failReporter()))
-);
+// // lints SCSS files
+// gulp.task('scsslint', () => gulp.src('client/styles/**/*.scss')
+//   .pipe($.scssLint({bundleExec: true}))
+//   .pipe($.if(env === 'production', $.scssLint.failReporter()))
+// );
 
 // makes a production build (client => dist)
 gulp.task('build', done => {
@@ -242,10 +237,18 @@ gulp.task('build', done => {
     ['minify-js', 'minify-css', 'compress-images', 'copy-misc-files'],
     // finalise the HTML in dist (by inlining small scripts/stylesheets then minifying the HTML)
     ['finalise-html'],
-    // create RSS feed in dist
-    ['create-rss-feed'],
-  done);
+    done
+  );
 });
+
+// downloads the data from bertha to client/words.json
+const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/honours,types`;
+gulp.task('download-data', () => fetch(SPREADSHEET_URL)
+  .then(res => res.json())
+  .then(spreadsheet => {
+    fs.writeFileSync('client/data.json', JSON.stringify(spreadsheet, null, 2));
+  })
+);
 
 // task to deploy to the interactive server
 gulp.task('deploy', done => {
@@ -264,170 +267,23 @@ gulp.task('deploy', done => {
   });
 });
 
-// downloads the data from bertha to client/words.json
-const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/data`;
-gulp.task('download-data', () => fetch(SPREADSHEET_URL)
-  .then(res => res.json())
-  .then(spreadsheet => {
-    const words = {};
-
-    for (const row of spreadsheet) {
-
-      row.slug = slugify(row.word);
-
-      if (words[row.slug]) throw new Error('Already exists: ' + row.slug);
-
-      words[row.slug] = row;
-    }
-
-    let wordArray = Object.keys(words);
-
-    let slugIndex = wordArray.sort();
-
-    const sortedWords = {};
-
-    for (const word of wordArray) {
-      sortedWords[word] = words[word];
-    }
-
-    let monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
-
-    for (const row of spreadsheet) {
-      let currentSlug = slugify(row.word);
-      let currentWord = words[currentSlug];
-
-      currentWord.relatedwords = currentWord.relatedwords.map(relatedWord => ({
-        slug: slugify(relatedWord),
-        word: words[slugify(relatedWord)].word
-      }));
-
-      let slugPointer = null;
-
-      if (slugIndex.indexOf(currentSlug) > 0) {
-        slugPointer = slugIndex.indexOf(currentSlug) - 1;
-      } else {
-        slugPointer = slugIndex.length - 1;
-      }
-
-      currentWord.previousWord = {
-        slug: words[slugIndex[slugPointer]].slug,
-        word: words[slugIndex[slugPointer]].word
-      };
-
-      if (slugIndex.indexOf(currentSlug) < slugIndex.length - 1) {
-        slugPointer = slugIndex.indexOf(currentSlug) + 1;
-      } else {
-        slugPointer = 0;
-      }
-
-      currentWord.nextWord = {
-        slug: words[slugIndex[slugPointer]].slug,
-        word: words[slugIndex[slugPointer]].word
-      };
-
-      currentWord.showPerpetratorData = currentWord.perpetrator
-                                              || currentWord.usagesource ? true : null;
-      if(currentWord.wordid) {
-        currentWord.wordid = currentWord.wordid.substring(4,currentWord.wordid.length);
-      }
-
-      let date = new Date(currentWord.submissiondate);
-      currentWord.formatteddate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
-
-      const tweetTextString = `“${currentWord.word}”: Corporate language crime no. ${currentWord.wordid} https://ig.ft.com/sites/guffipedia/${currentSlug}`;
-      const tweetTextRSSTemplate = Handlebars.compile('{{tweetText}}');
-      currentWord.tweettextrss = tweetTextRSSTemplate({tweetText: tweetTextString});
-      currentWord.tweettexturi = encodeURI(tweetTextString);
-    }
-
-    fs.writeFileSync('client/words.json', JSON.stringify(sortedWords, null, 2));
-
-    let dateIndex = wordArray.sort(function (a, b) {
-      return new Date(words[b].submissiondate) - new Date(words[a].submissiondate);
-    });
-
-    const homewords = {};
-
-    homewords[dateIndex[0]] = words[dateIndex[0]];
-
-    let randomNumber = Math.floor(Math.random() * (dateIndex.length - 1)) + 1;
-    homewords[dateIndex[randomNumber]] = words[dateIndex[randomNumber]];
-
-    fs.writeFileSync('client/homewords.json', JSON.stringify(homewords, null, 2));
-  })
-);
-
 gulp.task('templates', () => {
   Handlebars.registerPartial('top', fs.readFileSync('client/top.hbs', 'utf8'));
   Handlebars.registerPartial('bottom', fs.readFileSync('client/bottom.hbs', 'utf8'));
 
-  const definitionPageTemplate = Handlebars.compile(fs.readFileSync('client/definition-page.hbs', 'utf8'));
-
-  const words = JSON.parse(fs.readFileSync('client/words.json', 'utf8'));
-
-  for (const slug of Object.keys(words)) {
-    const word = words[slug];
-    const definitionPageHtml = definitionPageTemplate({
-      trackingEnv: (env === 'production' ? 'p' : 't'),
-      page: "definition",
-      word
-    });
-
-    mkdirp.sync(`.tmp/${slug}`);
-    fs.writeFileSync(`.tmp/${slug}/index.html`, definitionPageHtml);
-  }
-
-  const homewords = JSON.parse(fs.readFileSync('client/homewords.json', 'utf8'));
-
   const mainPageTemplate = Handlebars.compile(fs.readFileSync('client/main-page.hbs', 'utf8'));
+
+  const {types, honours} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
+
   const mainPageHtml = mainPageTemplate({
     trackingEnv: (env === 'production' ? 'p' : 't'),
-    page: "main",
-    homewords,
-    words,
+    page: 'main',
+    types,
+    honours,
   });
+
   fs.writeFileSync(`.tmp/index.html`, mainPageHtml);
-
-  const thanksPageTemplate = Handlebars.compile(fs.readFileSync('client/thanks-page.hbs', 'utf8'));
-  const thanksPageHtml = thanksPageTemplate({
-    trackingEnv: (env === 'production' ? 'p' : 't'),
-    page: "thanks"
-  })
-  fs.writeFileSync(`.tmp/thanks.html`, thanksPageHtml);
 });
-
-gulp.task('create-rss-feed', () => gulp.src('client/words.json')
-  .pipe(clone())
-  .pipe(jsonTransform(function(words) {
-    let wordArray = Object.keys(words);
-    let dateIndex = wordArray.sort(function (a, b) {
-      return new Date(words[b].submissiondate) - new Date(words[a].submissiondate);
-    });
-
-    const rssTitle = 'Guffipedia';
-    const rssLink = 'http://ft.com/guff';
-    const rssDescription = 'Lucy Kellaway’s dictionary of business jargon and corporate nonsense';
-
-    let rssString = `<?xml version="1.0"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>${rssTitle}</title><link>${rssLink}</link><description>${rssDescription}</description><atom:link href="https://ig.ft.com/sites/guffipedia/rss.xml" rel="self" type="application/rss+xml" />`;
-    for (const slug of dateIndex) {
-      let currentWord = words[slug];
-      rssString += '<item>';
-      rssString += `<title>${currentWord.word}</title><link>http://ig.ft.com/sites/guffipedia/${slug}/</link><guid>http://ig.ft.com/sites/guffipedia/${slug}/</guid><tweet>${currentWord.tweettextrss}</tweet>`;
-      rssString += '</item>';
-    }
-    rssString += '</channel></rss>';
-
-    return rssString;
-  }))
-  .pipe(rename('rss.xml'))
-  .pipe(prettyData({type: 'prettify'}))
-  .pipe(gulp.dest('dist'))
-);
 
 // helpers
 let preventNextReload; // hack to keep a BS error notification on the screen

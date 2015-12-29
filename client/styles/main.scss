@@ -14,6 +14,7 @@ $o-buttons-is-silent: false;
 
 @import 'fonts';
 @import 'colours';
+@import 'mixins';
 
 
 body {
@@ -24,416 +25,70 @@ body {
   font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 }
 
-
-.site-header {
-  padding: 12px 0 8px;
-  text-align: center;
-  border-bottom: 1px solid #e9decf;
-  @include oGridRespondTo(S) {
-    padding: 18px 0 14px;
-  }
-
-  > a {
-    opacity: 0.75;
-    &:hover { opacity: 1; }
-  }
-}
-    .masthead {
-      height: 14px;
-      @include oGridRespondTo(S) {
-        height: 18px;
-      }
-
-    }
-
-
-.line {
-  margin-top: 5px;
-  border-bottom: 1px solid #e9decf;
-}
-
-.btnHolder {
-  text-align: center;
-  margin-bottom: 15px;
-  @include oGridRespondTo(S) {
-    margin-bottom: 30px;
-  }
-
-}
-
-.o-buttons {
-  border-radius: 10px;
-  font-family: MetricWeb;
-  font-size: 1.4em;
-  line-height: 1.1em;
-  height: 45px;
-  width: 85%;
-  margin-top: 8px;
-  background-color: #af516c;
-  border-width: 0px;
-  padding-top: 9px;
-  @include oGridRespondTo(S) {
-    border-radius: 10px;
-    font-size: 1.7em;
-    line-height: 1.1em;
-    height: 60px;
-    width: 65%;
-    padding-top: 12px;
-  }
-  &:hover {
-    color: inherit;
-  }
-}
-.o-buttons--tweet {
-  background-color: #007dc5;
-  color: #ffffff;
-  margin-top: 15px;
-  border-radius: 5px;
-  font-family: MetricWeb;
-  font-size: 1.2em;
-  line-height: 1.0em;
-  height: 25px;
-  width: 150px;
-  padding-top: 4px;
-  img {
-      height: 16px;
-    }
-  @include oGridRespondTo(S) {
-    font-size: 1.7em;
-    line-height: 1.1em;
-    height: 40px;
-    padding-top: 5px;
-    width: 180px;
-    img {
-      height: 22px;
-    }
-  }
-  &:hover {
-    color: inherit;
-  }
-}
-
-.suggest-button {
-  height: auto;
-  padding: 10px;
-  @include oGridRespondTo(S) {
-    padding: 16px;
-  }
-}
-
-.source {
-  text-decoration: none;
-}
-
-.enhanced {
-  .random-guff {
-    visibility: hidden;
-  }
-}
-main {
-  @include oGridColspan((default: full-width, M: 10, L: 8, XL: 6));
-  @include oGridCenter;
-  padding: 0 15px;
-  h1 {
-    font-family: MetricWeb;
-    text-align: left;
-    font-weight: 200;
-    font-size: 2em;
-    line-height: 1.4em;
-    margin: 0px;
-    color: black;
+  .site-header {
+    padding: 12px 0 8px;
+    text-align: center;
+    border-bottom: 1px solid #e9decf;
     @include oGridRespondTo(S) {
-      font-size: 4em;
-      text-align: left;
+      padding: 18px 0 14px;
     }
-    a {
-      color: black;
-      &:hover {
-        color: black;
-      }
-    }
-  }
-  .headshot {
-    img {
-      width: 75px;
-      position: absolute;
-      top: 5px;
-      right: 0;
-      @include oGridRespondTo(S) {
-        width: 154px;
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-    }
-  }
-  a {
-    color: $blue;
-    text-decoration: none;
-    &:hover {
-      color: darken($blue, 10%);
-    }
-  }
-  .subheader {
-    width: 80%;
-    font-family: MetricWeb;
-    font-size: 0.9em;
-    line-height: 1em;
-    text-align: left;
-    margin-top: 2px;
-    color: $dark-grey;
-    @include oGridRespondTo(S) {
-      font-size: 1.8em;
-      text-align: left;
-      width: 75%;
-    }
-  }
 
-  .paraHeads {
-    margin-top: 8px;
-    font-size: 1em;
-    line-height: 1.2em;
-    color: $dark-grey;
-    @include oGridRespondTo(S) {
-      font-size: 1.5em;
-      line-height: 1.3em;
+    > a {
+      opacity: 0.75;
+      &:hover { opacity: 1; }
     }
-    &:after {
-    	content: '';
-    	clear: both;
-    	display: block;
-    }
-    .label {
-    	float: left;
-	    font-family: MetricWeb;
-	    font-weight: 600;
-    }
-    .timestamp {
-      font-size: 0.9em;
-      font-weight: 400;
-      float: left;
-      margin-left: 0.5em;
-      @include oGridRespondTo(S) {
-	      font-size: 0.8em;
-	    }
-    }
-    .refresh {
-    	// Older browsers: PNG fallback
-    	//background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:refresh?width=12&format=png&source=guffipedia');
+  }
+      .masthead {
+        height: 20px;
+        width: 200px;
+        // display: block;
+        // @include oGridRespondTo(S) {
+        //   height: 18px;
+        // }
+      }
 
-    	// Modern browsers: SVG covering the whole size of the element
-    	// we declare mutliple backgrounds so that only modern browsers read this property
-    	//background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:refresh?format=svg&source=guffipedia'), none;
-    	//background-size: cover;
-      background-color: #af516c;
-      border-radius: 3px;
-      cursor: pointer;
-      display: block;
-      color: #ffffff;
-      font-size: 1.0em;
-      line-height: 0.7em;
-      font-weight: 500;
-      float: left;
-      margin: 0px 0 6px 5px;
-      width: 115px;
-      height: 18px;
-      margin-left: 8px;
-      padding-left:5px;
-      padding-top: 1px;
-      padding-bottom: 2px;
-      img {
-        margin: 2px 8px 0 4px;
-        height: 13px;
+
+  .group {
+    background: #fffbf7;
+    @include shadow-3dp;
+  }
+    .award {
+      padding: 10px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #e9decf;
       }
-      &:hover {
-        color: #000000;
+      
+      > h5 {
+        font-size: 16px;
+        margin: 0;
       }
-      @include oGridRespondTo(S) {
-      	// Older browsers: PNG fallback
-      	//background-image: url('//image.webservices.ft.com/v1/images/raw/fticon:refresh?width=20&format=png&source=guffipedia');
-        margin-top:2px;
-        font-size: 0.9em;
-        line-height: 1.1em;
+
+      &__suffixes {
         font-weight: 400;
-        width: 150px;
-        height: 22px;
-        padding-bottom: 4px;
-          img {
-            margin-right: 8px;
-            margin-left: 5px;
-            height: 18px;
-          }
-          &:hover {
-            color: #000000;
-          }
-	    }
-    }
-  }
+        font-size: 0.75em;
+      }
 
-  .intro {
-    font-family: MetricWeb;
-    text-align: left;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    color: $dark-grey;
-    @include oGridRespondTo(S) {
-      font-size: 1.2em;
-    }
-  }
+      &__county {
+        font-weight: 300;
+        color: #a7a59b;
+      }
 
-  .latest-guff {
-    margin-top: 10px;
-    @include oGridRespondTo(S) {
-      margin-top: 20px;
+      &__citation {
+        margin: 0;
+      }
     }
 
+@include oGridRespondTo(S) {
+  .group {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 3px;
   }
+}
 
-  .guffs {
-    padding-left: 18px;
-    .guff {
-      list-style-type: none;
-      margin-bottom: 10px;
-      margin-top: 6px;
-      font-family: MetricWeb;
-      font-weight: 600;
-      text-align: left;
-      font-size: 0.7em;
-      line-height: 0.6em;
-      color: $dark-grey;
-      @include oGridRespondTo(S) {
-        font-size: 0.7em;
-        line-height: 0.7em;
-        margin-top: 6px;
-      }
-      span {
-        font-size: 0.9em;
-        font-weight: 600;
-        font-weight: normal;
-      }
-    }
-  }
-  @mixin word-style() {
-    color: $dark-pink;
-    font-family: "courier";
-    font-size: 1.5em;
-    font-weight: 600;
-    line-height: 1em;
-    text-align: left;
-    text-decoration: none;
-    @include oGridRespondTo(S) {
-      font-size: 2em;
-    }
-  }
-  a.word {
-    @include word-style();
-    &:hover {
-      color: darken($dark-pink, 30%);
-    }
-  }
-  div.word {
-    @include word-style();
-    position: relative;
-  }
-  .details {
-    padding: 0 0 5px 18px;
-    margin-top: 6px;
-    font-family: MetricWeb;
-    text-align: left;
-    font-size: 1em;
-    line-height: 1.2em;
-    color: $dark-grey;
-    @include oGridRespondTo(S) {
-      font-size: 1.4em;
-      margin-top: 8px;
-    }
-    .detail {
-      margin-top: 0.3em;
-      margin-bottom: 0.3em;
-      @include oGridRespondTo(S) {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-      }
-      &.relatedwords a {
-        color: $dark-pink;
-        font-family: "courier";
-        font-weight: bold;
-      }
-    }
-  }
-  .detailed-guff {
-    margin-top: 15px;
-    .word {
-      padding-right: 75px;
-    }
-    .twitter-share-button {
-      position: absolute !important;
-      top: 0;
-      right: 0;
-    }
-  }
-  .navigate-guff {
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
-    }
-    a {
-      box-sizing: border-box;
-      display: inline;
-      font-weight: normal;
-      margin: 15px 0;
-      padding: 0 10px;
-      text-align: center;
-      width: 50%;
-      &.previous-guff {
-        font-size: 1.1em;
-        float: left;
-        text-align: left;
-      }
-      &.next-guff {
-        font-size: 1.1em;
-        float: right;
-        text-align: right;
-      }
-      .preview {
-        font-family: "courier";
-        font-size: 1em;
-        line-height: 1em;
-        font-weight: 600;
-        color: $dark-pink;
-        @include oGridRespondTo(S) {
-          font-size: 1.2em;
-        }
-        &:hover {
-          color: darken($dark-pink, 30%);
-        }
-
-
-      }
-    }
-  }
-  .thanks-message {
-    font-family: MetricWeb;
-    text-align: left;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    color: $dark-grey;
-    margin-top: 20px;
-    @include oGridRespondTo(S) {
-      font-size: 1.2em;
-    }
-  }
-  .bottom-container {
-    margin-top: 15px;
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
-    }
-    .back-button {
-      float: left;
-      width: 70px;
-    }
+@include oGridRespondTo(M) {
+  .group {
+    
   }
 }

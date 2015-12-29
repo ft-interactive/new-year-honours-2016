@@ -1,7 +1,6 @@
 sudo: false
 language: node_js
 node_js: '5.0'
-before_install: 'bundle'
 deploy:
   skip_cleanup: true
   provider: script
@@ -10,7 +9,7 @@ deploy:
     branch: master
 env:
   GITHUB_USER: ft-interactive
-  GITHUB_REPO: guffipedia
+  GITHUB_REPO: new-year-honours-2015
   GIT_DEPLOY_DIR: dist
   GIT_DEPLOY_BRANCH: gh-pages
-  SPREADSHEET_KEY: 1ok1RvYWwHj03FrfN75zd9wPZvumDD9KrHHUNUl_qoAM
+
