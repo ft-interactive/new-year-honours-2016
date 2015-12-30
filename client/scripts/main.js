@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', onScroll);
     onScroll();
 
-    // and make clicking on a link scroll without a history state
+    // make clicking on a link jump to the relevant group, but with no history state
     navLinks.forEach((navLink, i) => {
       const group = groups[i];
 

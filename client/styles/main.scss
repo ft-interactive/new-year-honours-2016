@@ -176,13 +176,18 @@ body {
           border-bottom: 3px solid transparent;
 
           &:hover { color: #555; }
-          &:active { color: #222; }
+          &:active {
+            color: #222;
+            border-color: oColorsGetPaletteColor('claret');
+          }
   
+          transition: border-color, color linear, linear 0.2s, 0.2s;
+
           &.current {
             border-color: oColorsGetPaletteColor('claret');
             color: #333;
-            transition: border-color, color linear, linear 0.25s, 0.25s;
             cursor: default;
+            transition: all linear 0;
           }
         }
 
