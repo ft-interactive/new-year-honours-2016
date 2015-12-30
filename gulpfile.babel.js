@@ -243,57 +243,38 @@ gulp.task('build', done => {
 });
 
 // downloads the data from bertha to client/words.json
-const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/honours,groups,profiles,options`;
+const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/orders,ranks,recipients,profiles,options`;
 gulp.task('download-data', () => fetch(SPREADSHEET_URL)
   .then(res => res.json())
-  .then(({honours, groups, options, profiles}) => {
-    let maleTotal = 0;
-    let femaleTotal = 0;
-    let highestCount = 0;
+  .then(({orders, ranks, recipients, profiles, options}) => {
+    // `orders` will be our primary array – fold the ranks and recipients into it
+    for (const order of orders) {
+      // add ranks to this order
+      order.ranks = ranks
+        .filter(rank => rank.order === order.id)
+        .map(rank => {
+          rank.count = 0;
 
-    // augment groups with more info
-    for (const group of groups) {
-      group.maleCount = 0;
-      group.femaleCount = 0;
+          // add recipients (in divisions)
+          const divisions = {};
 
-      // add recipients
-      group.recipients = honours
-        .filter(honour => honour.honour === group.male.letters || honour.honour === group.female.letters)
-        .map(honour => {
-          if (honour.gender === 'F') group.femaleCount += 1;
-          else group.maleCount += 1;
-          return honour;
+          recipients.forEach(recipient => {
+            if (recipient.award === rank.male || recipient.award === rank.female) {
+              const devisionName = recipient.division || '';
+              if (!divisions[devisionName]) divisions[devisionName] = [];
+              divisions[devisionName].push(recipient);
+              rank.count++;
+            }
+          });
+
+          rank.divisions = Object.keys(divisions)
+            .map(name => ({name, recipients: divisions[name]}));
+
+          return rank;
         })
-        .sort((a, b) => {
-          if (a.surname.toLowerCase() < b.surname.toLowerCase()) return -1;
-          if (b.surname.toLowerCase() < a.surname.toLowerCase()) return 1;
-          return 0;
-        })
+        .filter(rank => rank.count > 0)
       ;
-
-      group.count = group.recipients.length;
-      highestCount = Math.max(highestCount, group.count);
-
-      maleTotal += group.maleCount;
-      femaleTotal += group.femaleCount;
     }
-
-    // add bar width
-    for (const group of groups) {
-      group.maleBarWidth = (group.maleCount / highestCount) * 100;
-      group.femaleBarWidth = (group.femaleCount / highestCount) * 100;
-      group.barWidth = group.maleBarWidth + group.femaleBarWidth;
-    }
-
-    // sort groups smallest-first
-    groups.sort((a, b) => {
-      if (a.count < b.count) return -1;
-      if (b.count < a.count) return 1;
-      return 0;
-    });
-
-    // filter out any groups that have nothing in them
-    groups = groups.filter(group => group.count > 0);
 
     // augment profiles with better urls
     profiles.forEach(profile => {
@@ -305,7 +286,7 @@ gulp.task('download-data', () => fetch(SPREADSHEET_URL)
     for (const {name, value} of options) optionsObject[name] = value;
     options = optionsObject;
 
-    fs.writeFileSync('client/data.json', JSON.stringify({groups, options, profiles}, null, 2));
+    fs.writeFileSync('client/data.json', JSON.stringify({options, profiles, orders}, null, 2));
   })
 );
 
@@ -332,14 +313,11 @@ gulp.task('templates', () => {
 
   const mainPageTemplate = Handlebars.compile(fs.readFileSync('client/main-page.hbs', 'utf8'));
 
-  const {groups, options, profiles} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
+  const {options, profiles, orders} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
 
   const mainPageHtml = mainPageTemplate({
+    options, profiles, orders,
     trackingEnv: (env === 'production' ? 'p' : 't'),
-    page: 'main',
-    groups,
-    options,
-    profiles,
   });
 
   mkdirp.sync('.tmp');

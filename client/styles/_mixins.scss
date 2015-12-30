@@ -50,3 +50,11 @@ $shadow-ambient-shadow-opacity: 0.12 * $shadow-multiplier;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

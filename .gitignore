@@ -3,4 +3,4 @@
 /dist/
 /.tmp/
 /.env
-/client/honours.json
+/client/data.json
