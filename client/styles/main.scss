@@ -9,6 +9,9 @@ $o-buttons-is-silent: false;
 
 $o-grid-debug-mode: true;
 
+$male-colour: #6898c1;
+$female-colour: #bb6d82;
+
 @import 'o-colors/main';
 @import 'o-footer/main';
 @import 'o-grid/main';
@@ -54,9 +57,8 @@ body {
     padding: 12px 0 8px;
     text-align: center;
     border-bottom: 1px solid #e9decf;
-    @include oGridRespondTo(S) {
-      padding: 18px 0 14px;
-    }
+
+    @include oGridRespondTo(S) { padding: 18px 0 14px; }
 
     > a {
       opacity: 0.75;
@@ -66,12 +68,7 @@ body {
       .masthead {
         height: 20px;
         width: 200px;
-        // display: block;
-        // @include oGridRespondTo(S) {
-        //   height: 18px;
-        // }
       }
-
   
   .chart {
     width: 300px;
@@ -100,15 +97,14 @@ body {
       }
 
       &__key-male:before {
-        background-color: #6898c1;
+        background-color: $male-colour;
       }
       &__key-female:before {
-        background-color: #bb6d82;
+        background-color: $female-colour;
       }
 
-    &__group {
+    &__group {}
 
-    }
       &__label {
         width: 60px;
         display: inline-block;
@@ -119,11 +115,10 @@ body {
 
         &[title] { border-bottom: 0; }
       }
+
       &__bar {
         position: relative;
         width: 66%;
-        // height: 30px;
-        // overflow: hidden;
         display: inline-block;
         margin: 0;
       }
@@ -131,13 +126,12 @@ body {
         &__female {
           height: 30px;
           display: inline-block;
-          // opacity: 0.8;
         }
         &__male {
-          background: #6898c1;
+          background: $male-colour;
         }
         &__female {
-          background: #bb6d82;
+          background: $female-colour;
         }
         &__count {
           position: absolute;
@@ -148,10 +142,68 @@ body {
         }
   }
 
+  .page-nav {
+    // background: white;
+    margin: 60px 0;
+    height: 3em;
+    overflow: hidden;
 
+    > ul {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #fff1e0;
 
+      &.stuck {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        transition: 0.25s linear box-shadow;
+
+        @include shadow-4dp;
+      }
+
+      > li {
+        display: inline-block;
+
+        > a {
+          color: #999;
+          text-decoration: none;
+          line-height: 1;
+          font-size: 13px;
+          padding: 1em 0.2em;
+          display: inline-block;
+          border-bottom: 3px solid transparent;
+
+          &:hover { color: #555; }
+          &:active { color: #222; }
+  
+          &.current {
+            border-color: oColorsGetPaletteColor('claret');
+            color: #333;
+            transition: border-color, color linear, linear 0.25s, 0.25s;
+            cursor: default;
+          }
+        }
+
+        // &:nth-child(2) > a {
+        //   border-bottom-color: oColorsGetPaletteColor('claret');
+        //   color: #333;
+        // }
+      }
+    }
+  }
+
+  .groups {
+    > a[name] {
+      position: relative;
+      display: block;
+      top: -90px;
+      // margin-bottom: 120px;
+    }
+  }
   .group {
-    @include shadow-3dp;
+    @include shadow-2dp;
 
     background: #fffbf7;
     padding: 10px;
@@ -163,11 +215,6 @@ body {
       font-weight: 500;
       display: inline;
     }
-    
-    // &__count {
-    //   display: inline;
-    //   margin-left: 8px;
-    // }
 
     > h4 {
       font-size: 20px;
@@ -177,15 +224,11 @@ body {
     }
   }
     .award {
-      // padding: 10px;
       break-inside: avoid-column;
       overflow: hidden; // possibly needed for Fx to make avoid-column work?
-      // color: #333;
 
-      &:not(:last-child) {
-        padding-bottom: 20px;
-      }
-      
+      &:not(:last-child) { padding-bottom: 20px; }
+
       > h5 {
         font-size: 15px;
         margin: 0;
@@ -210,8 +253,14 @@ body {
       }
     }
 
+
 @include oGridRespondTo(S) {
   .chart { width: 440px; }
+  
+  .page-nav > ul > li > a {
+    font-size: 18px;
+    padding: 1em 0.25em;
+  }
 
   .group {
     width: 440px;
@@ -224,17 +273,19 @@ body {
 @include oGridRespondTo(M) {
   .chart { width: 600px; }
 
+  .page-nav > ul > li > a {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 1em 0.8em;
+  }
+
   .group {
     width: 700px;
     padding: 15px;
   }
     .recipients {
       columns: 2 300px;
-      // column-count: 2;
-      // column-width: 300px;
       column-gap: 40px;
-      // column-fill: auto;
-      // column-rule: 1px dotted #ddd;
     }
 }
 
@@ -245,9 +296,6 @@ body {
     width: 900px;
     padding: 20px;
   }
-    .award {
-
-    }
 }
 
 @include oGridRespondTo(XL) {
@@ -257,7 +305,5 @@ body {
     .recipients {
       column-count: 3;
       column-gap: 30px;
-      // column-rule: 1px dotted #ddd;
-      // column-width: 300px;
     }
 }

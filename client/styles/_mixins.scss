@@ -1,6 +1,8 @@
-$shadow-key-umbra-opacity: 0.2 !default;
-$shadow-key-penumbra-opacity: 0.14 !default;
-$shadow-ambient-shadow-opacity: 0.12 !default;// Focus shadow mixin.
+$shadow-multiplier: 0.8;
+
+$shadow-key-umbra-opacity: 0.2 * $shadow-multiplier;
+$shadow-key-penumbra-opacity: 0.14 * $shadow-multiplier;
+$shadow-ambient-shadow-opacity: 0.12 * $shadow-multiplier;
 
 @mixin focus-shadow() {
   box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);

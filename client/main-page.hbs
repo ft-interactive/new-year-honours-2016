@@ -19,27 +19,34 @@
 
     <h2>The complete list</h2>
 
-    {{!-- <nav>TK sticky nav bar for honour types</nav> --}}
-
-    {{#groups}}
-    <section class="group" id="{{id}}">
-      <h3>{{shortname}}</h2>
-      {{!-- <div class="group__count">{{count}}</div> --}}
-      <h4>{{name}}</h3>
+    <nav class="page-nav">
+      <ul>
+        {{#groups}}<li><a href="#{{id}}">{{shortname}}</a></li>{{/groups}}
+      </ul>
+    </nav>
   
-      <div class="recipients">
-        {{#recipients}}
-        <article class="award">
-          <h5>
-            <span class="award__forenames">{{forenames}}</span>
-            <span class="award_surname">{{surname}}</span>{{#if suffixes}} <span class="award__suffixes">{{suffixes}}</span>{{/if}}{{#if county}}&nbsp; <span class="award__county">{{county}}</span>{{/if}}
-          </h5>
+    <div class="groups">
+      {{#groups}}
+      <a name="{{id}}"></a>
+      <section class="group">
+        <h3>{{shortname}}</h2>
+        {{!-- <div class="group__count">{{count}}</div> --}}
+        <h4>{{name}}</h3>
+    
+        <div class="recipients">
+          {{#recipients}}
+          <article class="award">
+            <h5>
+              <span class="award__forenames">{{forenames}}</span>
+              <span class="award_surname">{{surname}}</span>{{#if suffixes}} <span class="award__suffixes">{{suffixes}}</span>{{/if}}{{#if county}}&nbsp; <span class="award__county">{{county}}</span>{{/if}}
+            </h5>
 
-          <p class="award__citation">{{citation}}</p>
-        </article>
-        {{/recipients}}
-      </div>
-    </section>
-    {{/groups}}
+            <p class="award__citation">{{citation}}</p>
+          </article>
+          {{/recipients}}
+        </div>
+      </section>
+      {{/groups}}
+    </div>
   </main>
 {{> bottom }}
