@@ -28,7 +28,7 @@ const AUTOPREFIXER_BROWSERS = [
   'chrome >= 34',
 ];
 
-const DEPLOY_TARGET = ''; // e.g. 'features/YOUR-PROJECT-NAME'
+const DEPLOY_TARGET = 'sites/new-year-honours-2016'; // e.g. 'features/YOUR-PROJECT-NAME'
 
 const BROWSERIFY_ENTRIES = [
   'scripts/main.js',
@@ -243,10 +243,10 @@ gulp.task('build', done => {
 });
 
 // downloads the data from bertha to client/words.json
-const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/honours,groups,options`;
+const SPREADSHEET_URL = `https://bertha.ig.ft.com/republish/publish/gss/${process.env.SPREADSHEET_KEY}/honours,groups,profiles,options`;
 gulp.task('download-data', () => fetch(SPREADSHEET_URL)
   .then(res => res.json())
-  .then(({honours, groups, options}) => {
+  .then(({honours, groups, options, profiles}) => {
     let maleTotal = 0;
     let femaleTotal = 0;
     let highestCount = 0;
@@ -285,18 +285,27 @@ gulp.task('download-data', () => fetch(SPREADSHEET_URL)
       group.barWidth = group.maleBarWidth + group.femaleBarWidth;
     }
 
-    // sort smallest group first
+    // sort groups smallest-first
     groups.sort((a, b) => {
       if (a.count < b.count) return -1;
       if (b.count < a.count) return 1;
       return 0;
     });
 
+    // filter out any groups that have nothing in them
+    groups = groups.filter(group => group.count > 0);
+
+    // augment profiles with better urls
+    profiles.forEach(profile => {
+      profile.imageURLEncoded = encodeURIComponent(profile.imageurl);
+      delete profile.imageurl; // to avoid confusion
+    });
+
     const optionsObject = {};
     for (const {name, value} of options) optionsObject[name] = value;
     options = optionsObject;
 
-    fs.writeFileSync('client/data.json', JSON.stringify({groups, options}, null, 2));
+    fs.writeFileSync('client/data.json', JSON.stringify({groups, options, profiles}, null, 2));
   })
 );
 
@@ -323,13 +332,14 @@ gulp.task('templates', () => {
 
   const mainPageTemplate = Handlebars.compile(fs.readFileSync('client/main-page.hbs', 'utf8'));
 
-  const {groups, options} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
+  const {groups, options, profiles} = JSON.parse(fs.readFileSync('client/data.json', 'utf8'));
 
   const mainPageHtml = mainPageTemplate({
     trackingEnv: (env === 'production' ? 'p' : 't'),
     page: 'main',
     groups,
     options,
+    profiles,
   });
 
   mkdirp.sync('.tmp');

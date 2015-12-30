@@ -1,7 +1,19 @@
 {{> top }}
   <main>
-    <h1>New Year Honours, 2015</h1>
+    <h1>{{options.headline}}</h1>
 
+    <section class="profiles">
+      <h2>{{options.profilesHeadline}}</h2>
+      {{#profiles}}
+      <article class="profile">
+        <img src="https://image.webservices.ft.com/v1/images/raw/{{imageURLEncoded}}?source=ft-interactive&width=200&height=100&quality=high" srcset="https://image.webservices.ft.com/v1/images/raw/{{imageURLEncoded}}?source=ft-interactive&width=200&height=200&quality=high 2x">
+        <h5>{{name}}</h5>
+        <p>{{description}}</p>
+      </article>
+      {{/profiles}}
+    </section>
+
+    {{!-- 
     <h2>Breakdown</h2>
 
     <figure class="chart">
@@ -16,6 +28,7 @@
       </div>
       {{/groups}}
     </figure>
+     --}}
 
     <h2>The complete list</h2>
 
@@ -27,10 +40,11 @@
   
     <div class="groups">
       {{#groups}}
+
       <a name="{{id}}"></a>
+
       <section class="group">
         <h3>{{shortname}}</h2>
-        {{!-- <div class="group__count">{{count}}</div> --}}
         <h4>{{name}}</h3>
     
         <div class="recipients">

@@ -7,7 +7,7 @@
 $o-grid-is-silent: false;
 $o-buttons-is-silent: false;
 
-$o-grid-debug-mode: true;
+// $o-grid-debug-mode: true;
 
 $male-colour: #6898c1;
 $female-colour: #bb6d82;
@@ -21,12 +21,8 @@ $female-colour: #bb6d82;
 @import 'colours';
 @import 'mixins';
 
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
 
 body {
   @include oColorsFor(page, background);
@@ -142,6 +138,28 @@ body {
         }
   }
 
+  .profiles {
+    @include shadow-2dp;
+
+    background: #fffbf7;
+    padding: 10px;
+    margin-bottom: 40px;
+
+    position: relative;
+
+    > h2 {
+      font-weight: 600;
+    }
+  }
+    .profile {
+      > img {
+        border-radius: 3px;        
+      }
+      > h5 {
+
+      }
+    }
+
   .page-nav {
     // background: white;
     margin: 60px 0;
@@ -190,11 +208,6 @@ body {
             transition: all linear 0;
           }
         }
-
-        // &:nth-child(2) > a {
-        //   border-bottom-color: oColorsGetPaletteColor('claret');
-        //   color: #333;
-        // }
       }
     }
   }
@@ -266,7 +279,8 @@ body {
     font-size: 18px;
     padding: 1em 0.25em;
   }
-
+  
+  .profiles,
   .group {
     width: 440px;
     margin-left: auto;
@@ -283,7 +297,8 @@ body {
     font-size: 20px;
     padding: 1em 0.8em;
   }
-
+  
+  .profiles,
   .group {
     width: 700px;
     padding: 15px;
@@ -296,7 +311,8 @@ body {
 
 @include oGridRespondTo(L) {
   .chart { width: 700px; }
-
+  
+  .profiles,
   .group {
     width: 900px;
     padding: 20px;
@@ -304,6 +320,7 @@ body {
 }
 
 @include oGridRespondTo(XL) {
+  .profiles,
   .group {
     width: 1180px;
   }
