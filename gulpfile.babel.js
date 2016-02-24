@@ -139,7 +139,7 @@ gulp.task('finalise-html', done => {
     .on('end', () => {
       gulp.src('dist/**/*.html')
         .pipe($.smoosher())
-        .pipe($.minifyHtml())
+        // .pipe($.minifyHtml())
         .pipe(gulp.dest('dist'))
         .on('end', done);
     });
@@ -268,13 +268,21 @@ gulp.task('download-data', () => fetch(SPREADSHEET_URL)
           });
 
           rank.divisions = Object.keys(divisions)
-            .map(name => ({name, recipients: divisions[name]}));
+            .map(name => ({name, recipients: divisions[name]}))
+            .sort((a, b) => {
+              if (a.name < b.name) return -1;
+              if (a.name > b.name) return 1;
+              return 0;
+            })
+          ;
 
           return rank;
         })
         .filter(rank => rank.count > 0)
       ;
     }
+
+    orders = orders.filter(order => order.ranks.length > 0);
 
     // augment profiles with better urls
     profiles.forEach(profile => {
