@@ -1,3 +1,13 @@
+# NOTICE
+
+It looks like this project was originally being built and deployed via Travis to GitHub Pages, then at some point this changed in a hurry to using `gulp build && gulp deploy` to manually deploy it to the IG server. But the travis stuff never got cleaned up. TODO: remove travis stuff from this repo
+
+The live site is here:
+
+https://ig.ft.com/sites/new-year-honours-2016/
+
+---
+
 # [New Year Honours List, 2015](https://ft-interactive.github.com/new-year-honours-2016/) [![Build Status][travis-image]][travis-url]
 new-year-honours-2016
 ## Usage
